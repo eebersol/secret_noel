@@ -14,7 +14,7 @@ module.exports = class Mailer {
 			to: offreur.mail,
 			subject: 'Père Noel Secret',
 			text: ``,
-			html: `Salut ! Tu dois offrir un cadeau a ${receveur}`,
+			html: `Coucou ${offreur.name} ! :) <br /> Tu dois offrir un cadeau a ${receveur}. <br /> Bon courage !`,
 		}
 		this.transporter.sendMail(this.mailOptions, function(error, info){
 			if (error) 
