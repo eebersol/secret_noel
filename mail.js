@@ -1,25 +1,24 @@
 const nodemailer = require('nodemailer');
-const Mailer     = require('mailer.js');
 
 module.exports = class Mailer {
 	constructor(offreur, receveur) {
 		this.transporter 	= nodemailer.createTransport({
-		  service: 'Hotmail',
+		  service: "hotmail",
 		  auth: {
-		    user: 'edouard.ebersoldt@hotmail.fr',
-		    pass: process.env.MAIL_PASS,
+		    user: "edouard.ebersoldt@hotmail.fr",
+		    pass: "edcxszaqw1994"
 		  }
 		});
 		this.mailOptions = {
-			from: '${offreur}',
-			to: 'edouard.ebersoldt@gmail.com',
+			from: '<edouard.ebersoldt@hotmail.fr>',
+			to: offreur.mail,
 			subject: 'Père Noel Secret',
-			text: 'Salut ! Tu dois offrir un cadeau a ${receveur}',
-			html: ``,
+			text: ``,
+			html: `Salut ! Tu dois offrir un cadeau a ${receveur}`,
 		}
 		this.transporter.sendMail(this.mailOptions, function(error, info){
 			if (error) 
-				return console.log(e);
+				return console.log(error);
 			return console.log("Okay !")
 		}.bind(this));
 	}

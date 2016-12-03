@@ -1,5 +1,5 @@
 const fs 			= require('fs');
-const Mailer     	= require('mail.js');
+const Mailer  = require('./mail.js');
 
 class SecretNoel {
 
@@ -20,26 +20,25 @@ class SecretNoel {
   			let k = 0
   			let j = 1;
   			for (j; j < (this.random_list.length - 1); j++) {
-  				console.log(this.random_list[k].id > this.random_list[j].id)
-  			if (this.random_list[k].id > this.random_list[j].id) {
-  				let b = this.random_list[k];
-				this.random_list[k] = this.random_list[j];
-				this.random_list[j] = b;
-  			}
-  			k++;
+    			if (this.random_list[k].id > this.random_list[j].id) {
+    				let b = this.random_list[k];
+  				this.random_list[k] = this.random_list[j];
+  				this.random_list[j] = b;
+    			}
+    			k++;
   		}
   	}
   		for(let i = 0; i < this.random_list.length; i++){
   		 	console.log("Name :- " + this.random_list[i].name + " Mail :- "  + this.random_list[i].mail + " id:- "  + this.random_list[i].id);
   		}
   		
-  		let k = this.random_list.length;
+  		let k = this.random_list.length - 1;
   		for (let i = 0; i < this.random_list.length; i++) {
   			if (i == k)
   				return ;
-  			else
-  				new Mailer (this.random_list[i], this.random_list[k]);
-  				k--;
+  			else 
+    				new Mailer (this.random_list[i], this.random_list[k].name);
+          k--;
 
   		}
 	}

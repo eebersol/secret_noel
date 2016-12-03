@@ -1,0 +1,23 @@
+{
+  "name": "secret_noel",
+  "version": "1.0.0",
+  "description": "Secret_noel gift",
+  "main": "secret_noel.js",
+  "dependencies": {
+    "nodemailer": "^2.0.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eebersol/secret_noel.git"
+  },
+  "author": "eebersol",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/eebersol/secret_noel/issues"
+  },
+  "homepage": "https://github.com/eebersol/secret_noel#readme"
+}

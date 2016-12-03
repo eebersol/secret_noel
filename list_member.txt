@@ -1,7 +1,7 @@
-Edouard:adsadasdasdas
-Maman:dasdasdasdasda
-Theos:cxzxzczxczxc
-Louis:wqeqweqe
-Barth:3121232
-ROwi:fdscxvdfbr
-Christine:dasdasdasdas
+Edouard:edouard.ebersoldt@gmail.com
+Maman:edouard.ebersoldt@gmail.com
+Theos:edouard.ebersoldt@gmail.com
+Louis:edouard.ebersoldt@gmail.com
+Barth:edouard.ebersoldt@gmail.com
+ROwi:edouard.ebersoldt@gmail.com
+Christine:edouard.ebersoldt@gmail.com
