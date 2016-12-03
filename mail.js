@@ -19,7 +19,7 @@ module.exports = class Mailer {
 		this.transporter.sendMail(this.mailOptions, function(error, info){
 			if (error) 
 				return console.log(error);
-			return console.log("Okay !")
+			return console.log(`Message sent : ${info.response}`)
 		}.bind(this));
 	}
 }
