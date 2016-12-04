@@ -1,13 +1,12 @@
 const fs 			=	require('fs');
-const Mailer	=	require('./mail.js');
+const Mailer		=	require('./mail.js');
 
-class SecretNoel {
+module.exports = class SecretNoel {
 
 	constructor() {
 		this.member_list  = fs.readFileSync('list_member.txt').toString().split("\n");
 		this.random_list = [];
 		this.i = 0;
-
 
 		this._getinfo();
 		// this._displayinfo();
@@ -62,5 +61,3 @@ class SecretNoel {
 		}
 	}
 }
-
-new SecretNoel();
