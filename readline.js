@@ -5,7 +5,7 @@ const Secretnoel = require("./secret_noel.js");
 
 class Readline {
 	constructor() {
-		console.log("Welcome to secret_noel");
+		console.log("\x1b[31m< ❉\x1b[0m\x1b[32mWelcome to\x1b[0m\x1b[31m secret_noel\x1b[0m\x1b[32m❉ >\x1b[0m\n");
 		this.readline = readline.createInterface(process.stdin, process.stdout);
 		this.readline.setPrompt(`\x1b[32m< ❉\x1b[0m\x1b[31m Choose num\x1b[0m\x1b[32mber of player \x1b[0m\x1b[31m❉ >\x1b[0m`, 25);
 		this.readline.on("line", this.on_command.bind(this));
