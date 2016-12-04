@@ -4,7 +4,6 @@ const os 		 = require("os");
 const Secretnoel = require("./secret_noel.js");
 
 class Readline {
-
 	constructor() {
 		console.log("Welcome to secret_noel");
 		this.readline = readline.createInterface(process.stdin, process.stdout);
@@ -15,7 +14,6 @@ class Readline {
   		this.add_player = 1;
   		this.finish = 0;
 	}
-
 	on_command(cmds) {
 		let opts = cmds.split(' ');
 
@@ -55,8 +53,6 @@ class Readline {
 			this.readline.prompt();
 		else
 			console.log("\x1b[31mSending \x1b[0m\x1b[32mMail at players\x1b[0m");
-
-
 	}
 }
 
