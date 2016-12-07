@@ -6,7 +6,7 @@ module.exports = class Mailer {
 		  service: "hotmail",
 		  auth: {
 		    user: "edouard.ebersoldt@hotmail.fr",
-		    pass: "toto.titi.tatA"
+		    pass: "edcxszaqw1994"
 		  }
 		});
 		this.mailOptions = {
