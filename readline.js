@@ -16,8 +16,6 @@ class Readline {
 	}
 	on_command(cmds) {
 		let opts = cmds.split(' ');
-		console.log(`Number_player : ${this.number_player} || Add_player : ${this.add_player} || opts[0] : ${opts[0]} || opts[1] : ${opts[1]} || finish : ${this.finish}`)
-		console.log(opts[1]);
 
 		if (this.number_player == 0)
 		{
@@ -27,7 +25,6 @@ class Readline {
 				this.number_player = parseInt(opts[0]);
 		}
 		else if (opts[1]) {
-			console.log("ICI");
 			if (!this.validinfo(opts[1]))
 				console.log("\x1b[31mInvalid\x1b[0m \x1b[32madress\x1b[0m \x1b[31mmail.\x1b[0");
 			else if (this.add_player < this.number_player) {
@@ -40,10 +37,7 @@ class Readline {
 				});
 				this.add_player++;
 				console.log(`${this.add_player} || ${this.number_player}`);
-			 }// } else if (this.add_player == this.number_player) {
-			// 		this.finish = 1;
-			// 		new Secretnoel();
-			// 	}
+			 }
 		}
 		if (this.add_player == this.number_player) {
 			this.finish = 1;
@@ -59,53 +53,11 @@ class Readline {
 			this.readline.prompt();
 		else
 			console.log("\x1b[31mSending \x1b[0m\x1b[32mMail at players\x1b[0m");
-
-	// 	if (this.number_player == 1) {
-	// 		if (parseInt(opts[0]) == NaN) {
-	// 			console.log(`\x1b[32m${opts[0]} is \x1b[0m\x1b[31mnot a number.\x1b[0m`)
-	// 		} else
-	// 			this.number_player = parseInt(opts[0]);
-	// 	} else if (this.number_player != 1 && opts.length == 2) {
-	// 		 if (this.validinfo(opts[1]) == true && this.add_player <= this.number_player) {
-	// 			let player = opts[0].concat(":");
-	// 			player = player.concat(opts[1]);
-	// 			this.add_player++;
-	// 			console.log("Adding_player")
-	// 			fs.appendFile("list_member.txt", player + os.EOL, function(err) {
- //   					if (err)
-	// 					return console.log(err);
-	// 			});
-	// 		} else if (this.number_player != 1 && this.number_player < this.add_player) {
-	// 			console.log("Finish, sending mail")
-	// 			this.finish = 1;
-	// 			new Secretnoel();
-	// 		} else
-	// 			console.log("\x1b[31mInvalid\x1b[0m \x1b[32madress\x1b[0m \x1b[31mmail.\x1b[0");
- //    	}	
-	// 	console.log(`finish : ${this.finish}`);
-	// 	if (opts[0] == "exit")
-	// 		process.exit();
-	// 	if (this.number_player != 1 && this.finish == 0) {
-	// 		console.log("1");
-	// 		this.readline.setPrompt(`\x1b[31m< ❉\x1b[0m\x1b[32mEnter \x1b[31mname\x1b[0m\x1b[32m and \x1b[0m\x1b[31mmail\x1b[0m \x1b[0m\x1b[32m${this.add_player}\x1b[0m\x1b[32m on \x1b[0m\x1b[31m${this.number_player}\x1b[0m\x1b[32m ❉ >  \x1b[0m`, 80);
-	// 	}
-	// 	else if (this.number_player == 1 && this.finish == 0) {
-	// 		console.log("2");
-	// 	this.readline.setPrompt(`\x1b[32m< ❉ \x1b[0m\x1b[31m Choose num\x1b[0m\x1b[32mber of player \x1b[0m\x1b[31m❉ >\x1b[0m  `, 80);
-	// 	}
-	// 	if (this.finish == 0) {
-	// 		console.log("3");
-	// 		this.readline.prompt();
-	// 	}
-	// 	else {
-	// 		console.log("4");
-	// 		console.log("\x1b[31mSending \x1b[0m\x1b[32mMail at players\x1b[0m");
-	// 	}
-	// }
 }
 
 	validinfo(email) {
 		let regex_email =  /\S+@\S+\.\S+/;
+		
 		return regex_email.test(email);
 	}
 }
