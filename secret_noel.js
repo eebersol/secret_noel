@@ -3,16 +3,10 @@ const Mailer		=	require('./mail.js')
 
 module.exports = class SecretNoel {
 	constructor() {
-		console.log("ICI secretnoel")
 		setTimeout(() => {
 		this.member_list  = fs.readFileSync('list_member.txt').toString().split("\n");
 		this.random_list = [];
 		this.i = 0;
-
-
-		console.log(this.member_list[0]);
-		console.log(this.member_list[1]);
-		console.log(this.member_list[2]);
 		this._getinfo();
 		this._displayinfo();
 		console.log('\n');
@@ -23,7 +17,7 @@ module.exports = class SecretNoel {
 	}
 
   _getinfo() {
-		for(this.i = 0; this.i < (this.member_list.length); this.i++) {
+		for(this.i = 0; this.i < (this.member_list.length - 1); this.i++) {
 			let random =  Math.random();
 			let split_array = this.member_list[this.i].toString().split(":")
 			console.log(`member_list dans radndom_list ${split_array[0]} ${split_array[1]}`)
@@ -60,16 +54,17 @@ module.exports = class SecretNoel {
 	_sendmail() {
 		let k = 0;
 		let j = 0
-		for (let i = 1; i < this.random_list.length - 1; i++) {
-			console.log(`${this.random_list[k]} -- ${this.random_list[i].name}`);
+		for (let i = 1; i < this.random_list.length; i++) {
+			console.log(`${this.random_list[k].name} -- ${this.random_list[i].name}`);
 			new Mailer (this.random_list[k], this.random_list[i].name)
 			k++
 		}
 		console.log(`length : ${this.random_list.length}`);
 		if (this.random_list.length % 2 != 0) {
-			console.log(`${this.random_list[this.random_list.length - 1]} -- ${this.random_list[0].name}`);
+			console.log(`${this.random_list[this.random_list.length - 1].name} -- ${this.random_list[0].name}`);
 			new Mailer (this.random_list[this.random_list.length - 1], this.random_list[0].name)
 		}
+		fs.unlink("list_member.txt");
 
 	}
 }
