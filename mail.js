@@ -1,7 +1,7 @@
 const nodemailer = require('nodemailer');
 
 module.exports = class Mailer {
-	constructor(offreur, receveur) {
+	constructor(offreur, receveur, idea) {
 		this.transporter 	= nodemailer.createTransport({
 		  service: "hotmail",
 		  auth: {
@@ -14,7 +14,7 @@ module.exports = class Mailer {
 			to: offreur.mail,
 			subject: 'Père Noel Secret',
 			text: ``,
-			html: `Coucou ${offreur.name} ! :) <br /> Tu dois offrir un cadeau a ${receveur}. <br /> Bon courage !`,
+			html: `Coucou ${offreur.name} ! :) <br /> Tu dois offrir un cadeau a ${receveur}. <br /> Bon courage ! <br />Askiparaitrais il aime bien : ${idea}`,
 		}
 		this.transporter.sendMail(this.mailOptions, function(error, info){
 			if (error) 

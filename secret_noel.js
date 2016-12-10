@@ -4,6 +4,7 @@ const Mailer		=	require('./mail.js')
 module.exports = class SecretNoel {
 	constructor() {
 		setTimeout(() => {
+		this.idea_list = fs.readFileSync('list_idea.txt').toString().split("\n");
 		this.member_list  = fs.readFileSync('list_member.txt').toString().split("\n");
 		this.random_list = [];
 		this.i = 0;
@@ -15,13 +16,15 @@ module.exports = class SecretNoel {
 		this._sendmail();
 		 }, 1000 * 5);
 	}
-
   _getinfo() {
 		for(this.i = 0; this.i < (this.member_list.length - 1); this.i++) {
 			let random =  Math.random();
+			let idea_tab = this.idea_list[this.i].toString().split(":");
+			let idea_name = idea_tab[0];
+			idea_tab = arr.slice(1, idea_tab.length);
 			let split_array = this.member_list[this.i].toString().split(":")
 			console.log(`member_list dans radndom_list ${split_array[0]} ${split_array[1]}`)
-			this.random_list.push({name:split_array[0],mail:split_array[1],id:random});
+			this.random_list.push({name:split_array[0],mail:split_array[1],id:random, idea:idea_tab});
 		}
 	}
 
@@ -54,15 +57,15 @@ module.exports = class SecretNoel {
 	_sendmail() {
 		let k = 0;
 		let j = 0
-		for (let i = 1; i < this.random_list.length; i++) {
-			console.log(`${this.random_list[k].name} -- ${this.random_list[i].name}`);
-			new Mailer (this.random_list[k], this.random_list[i].name)
-			k++
+		for (let i = 1; i < this.random_list.length - 1; i++) {
+			console.log(`${this.random_list[k]} -- ${this.random_list[i].name}`);
+			new Mailer (this.random_list[k], this.random_list[i].name, this.random_list[i].idea);
+			k++;
 		}
 		console.log(`length : ${this.random_list.length}`);
 		if (this.random_list.length % 2 != 0) {
-			console.log(`${this.random_list[this.random_list.length - 1].name} -- ${this.random_list[0].name}`);
-			new Mailer (this.random_list[this.random_list.length - 1], this.random_list[0].name)
+			console.log(`${this.random_list[this.random_list.length - 1]} -- ${this.random_list[0].name}`);
+			new Mailer (this.random_list[this.random_list.length - 1], this.random_list[0].name, this.random_list[0].idea);
 		}
 		fs.unlink("list_member.txt");
 

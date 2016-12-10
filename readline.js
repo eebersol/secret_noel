@@ -16,8 +16,6 @@ class Readline {
 	}
 	on_command(cmds) {
 		let opts = cmds.split(' ');
-		console.log(`Number_player : ${this.number_player} || Add_player : ${this.add_player} || opts[0] : ${opts[0]} || opts[1] : ${opts[1]} || finish : ${this.finish}`)
-		console.log(opts[1]);
 
 		if (this.number_player == 0)
 		{
@@ -57,6 +55,7 @@ class Readline {
 }
 	validinfo(email) {
 		let regex_email =  /\S+@\S+\.\S+/;
+		
 		return regex_email.test(email);
 	}
 }
