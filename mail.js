@@ -5,16 +5,16 @@ module.exports = class Mailer {
 		this.transporter 	= nodemailer.createTransport({
 		  service: "hotmail",
 		  auth: {
-		    user: "edouard.ebersoldt@hotmail.fr",
-		    pass: "edcxszaqw1994"
+		    user: "your mail",
+		    pass: "your password"
 		  }
 		});
 		this.mailOptions = {
-			from: '<edouard.ebersoldt@hotmail.fr>',
+			from: '<your mail>',
 			to: offreur.mail,
 			subject: 'Père Noel Secret',
 			text: ``,
-			html: `Coucou ${offreur.name} ! :) <br /> Tu dois offrir un cadeau a ${receveur}. <br /> Bon courage ! <br />Askiparaitrais il aime bien : ${idea}`,
+			html: ``,
 		}
 		this.transporter.sendMail(this.mailOptions, function(error, info){
 			if (error) 

@@ -28,11 +28,11 @@ module.exports = class SecretNoel {
 		}
 	}
 
-	_displayinfo() {
-		console.log(`Ici : ${this.random_list}`)
-		for(this.i = 0; this.i < this.random_list.length; this.i++)
-			console.log("Name :- " + this.random_list[this.i].name + " Mail :- "  + this.random_list[this.i].mail + " id:- "  + this.random_list[this.i].id);
-	}
+	// _displayinfo() {
+	// 	console.log(`Ici : ${this.random_list}`)
+	// 	for(this.i = 0; this.i < this.random_list.length; this.i++)
+	// 		console.log("Name :- " + this.random_list[this.i].name + " Mail :- "  + this.random_list[this.i].mail + " id:- "  + this.random_list[this.i].id);
+	// }
 
   _sortinfo() {
     for (this.i = 0; this.i < 100; this.i++) {
@@ -49,10 +49,10 @@ module.exports = class SecretNoel {
 		}
 	}
 
-	_displayfinalinfo () {
-			for(this.i = 0; this.i < this.random_list.length; this.i++)
-				console.log("Name :- " + this.random_list[this.i].name + " Mail :- "  + this.random_list[this.i].mail + " id:- "  + this.random_list[this.i].id);
-	}
+	// _displayfinalinfo () {
+	// 		for(this.i = 0; this.i < this.random_list.length; this.i++)
+	// 			console.log("Name :- " + this.random_list[this.i].name + " Mail :- "  + this.random_list[this.i].mail + " id:- "  + this.random_list[this.i].id);
+	// }
 
 	_sendmail() {
 		let k = 0;
@@ -62,9 +62,8 @@ module.exports = class SecretNoel {
 			new Mailer (this.random_list[k], this.random_list[i].name, this.random_list[i].idea);
 			k++;
 		}
-		console.log(`length : ${this.random_list.length}`);
 		if (this.random_list.length % 2 != 0) {
-			console.log(`${this.random_list[this.random_list.length - 1]} -- ${this.random_list[0].name}`);
+			// console.log(`${this.random_list[this.random_list.length - 1]} -- ${this.random_list[0].name}`);
 			new Mailer (this.random_list[this.random_list.length - 1], this.random_list[0].name, this.random_list[0].idea);
 		}
 		fs.unlink("list_member.txt");
