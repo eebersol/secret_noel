@@ -16,7 +16,7 @@ module.exports = class SecretNoel {
 		this._sendmail();
 		 }, 1000 * 5);
 	}
-	
+
   _getinfo() {
 		for(this.i = 0; this.i < (this.member_list.length - 1); this.i++) {
 			let random =  Math.random();
@@ -24,7 +24,6 @@ module.exports = class SecretNoel {
 			let idea_name = idea_tab[0];
 			idea_tab = arr.slice(1, idea_tab.length);
 			let split_array = this.member_list[this.i].toString().split(":")
-			console.log(`member_list dans radndom_list ${split_array[0]} ${split_array[1]}`)
 			this.random_list.push({name:split_array[0],mail:split_array[1],id:random, idea:idea_tab});
 		}
 	}
