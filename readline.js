@@ -14,6 +14,7 @@ class Readline {
 		this.readline.on("line", this.on_command.bind(this));
   		this.readline.prompt();
 	}
+
 	on_command(cmds) {
 		let opts = cmds.split(' ');
 
@@ -30,12 +31,11 @@ class Readline {
 			else if (this.add_player < this.number_player) {
 				let player = opts[0].concat(":");
 				player = player.concat(opts[1]);
-				fs.appendFile("list_member.txt", player + os.EOL, function(err) {
+				fs.appendFile("member_list.txt", player + os.EOL, function(err) {
    					if (err)
 						return console.log(err);
 				});
 				this.add_player++;
-				console.log(`${this.add_player} || ${this.number_player}`);
 			 }
 		}
 		if (this.add_player == this.number_player) {
