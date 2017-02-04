@@ -9,10 +9,10 @@ module.exports = class SecretNoel {
 		this.random_list = [];
 		this.i = 0;
 		this._getinfo();
-		this._displayinfo();
-		console.log('\n');
+		// this._displayinfo();
+		// console.log('\n');
 		this._sortinfo();
-		this._displayfinalinfo();
+		// this._displayfinalinfo();
 		this._sendmail();
 		 }, 1000 * 5);
 	}
